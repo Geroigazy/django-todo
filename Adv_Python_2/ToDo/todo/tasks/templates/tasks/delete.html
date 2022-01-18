@@ -1,6 +1,10 @@
+<body style="background: #7289da; font-family: Arial, Helvetica, sans-serif;">
+<div style="margin: auto; width: max-content;">
 <p>Are you sure you want to delete "{{item}}"?</p>
 <a href="{% url 'list' %}">Cancel</a>
 <form method="POST" action="">
     {% csrf_token %}
     <input type="submit" value="Confirm">
 </form>
+</div>
+</body>

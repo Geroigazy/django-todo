@@ -1,3 +1,6 @@
+<body style="background: #7289da; font-family: Arial, Helvetica, sans-serif;">
+    
+<div style="margin: auto; width: max-content; height: max-content; text-align: center;">
 <h3>To Do</h3>
 
 
@@ -6,16 +9,18 @@
     {{form.title}}
     <input type="submit" value="Create task">
 </form>
-
+<div style="text-align: left;">
 {% for task in tasks %}
     <div>
-        <a href="{% url 'update_task' task.id %}">Update</a>
-        <a href="{% url 'delete' task.id %}">Delete</a>
-
         {% if task.complete == True %}
         <strike>{{task}}</strike>
         {% else %}
         <span>{{task}}</span>
         {% endif %}
+        <a href="{% url 'update_task' task.id %}" style="text-decoration: none; box-sizing: content-box; background-color: azure; border-radius: 3px;">Update</a>
+        <a href="{% url 'delete' task.id %}" style="text-decoration: none; background-color: azure; border-radius: 3px;">Delete</a>
     </div>
 {% endfor %}
+</div>
+</div>
+</body>
