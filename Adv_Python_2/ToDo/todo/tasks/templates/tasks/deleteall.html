@@ -1,0 +1,12 @@
+<body style="background: #7289da; font-family: Arial, Helvetica, sans-serif;">
+    <div style="background-color: white; margin: auto; width: max-content; margin-top: 250px;">
+    <p>Are you sure you want to delete all?</p>
+    <div style="display: flex;">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="submit" value="Confirm">
+    </form>
+    <a href="{% url 'list' %}" style="text-decoration: none; padding-left: 20px;">Cancel</a>
+    </div>
+    </div>
+    </body>

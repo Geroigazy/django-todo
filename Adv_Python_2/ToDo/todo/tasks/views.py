@@ -44,3 +44,13 @@ def delete(request, pk):
     
     context = {'item':item}
     return render(request, 'tasks/delete.html', context)
+
+def deleteall(request):
+    item = Task.objects.all()
+
+    if request.method == 'POST':
+        item.delete()
+        return redirect('/')
+    
+    context = {'item':item}
+    return render(request, 'tasks/deleteall.html', context)

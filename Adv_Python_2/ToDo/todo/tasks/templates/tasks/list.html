@@ -1,6 +1,6 @@
 <body style="background: #7289da; font-family: Arial, Helvetica, sans-serif;">
     
-<div style="margin: auto; width: max-content; height: max-content; text-align: center;">
+<div style="margin: auto; width: max-content; height: max-content; text-align: center; padding-top: 150px;">
 <h3>To Do</h3>
 
 
@@ -21,6 +21,7 @@
         <a href="{% url 'delete' task.id %}" style="text-decoration: none; background-color: azure; border-radius: 3px;">Delete</a>
     </div>
 {% endfor %}
+<a href="{% url 'deleteall' %}" style="text-decoration: none; background-color: azure; border-radius: 3px;">DeleteAll</a>
 </div>
 </div>
 </body>
