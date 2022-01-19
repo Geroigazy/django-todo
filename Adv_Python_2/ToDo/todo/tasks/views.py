@@ -1,10 +1,11 @@
 from asyncio import tasks
 from multiprocessing import context
-import re
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
 # Create your views here.
 
 
@@ -54,3 +55,21 @@ def deleteall(request):
     
     context = {'item':item}
     return render(request, 'tasks/deleteall.html', context)
+
+def register(request):
+    if request.method == 'POST':
+
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('/')
+        return redirect('/')
+    else:
+        form = UserCreationForm()
+    context = {'form':form}
+
+    return render(request, 'registration/registration.html', context)
