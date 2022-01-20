@@ -1,11 +1,12 @@
 from asyncio import tasks
 from multiprocessing import context
+from django.conf import UserSettingsHolder
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import *
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm, UserModel
+from django.contrib.auth import login, authenticate, logout
 # Create your views here.
 
 

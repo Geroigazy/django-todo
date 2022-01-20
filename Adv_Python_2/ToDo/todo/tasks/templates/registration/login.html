@@ -1,8 +1,5 @@
-{% if form.error %}
-<p>Wrong</p>
-{% endif %}
-{% if next %}
-<p>cant</p>
+{% if form.errors %}
+<p style="color: red;">Your username and password didn't match. Please try again.</p>
 {% endif %}
 
 <form method="POST" action="{% url 'login' %}">
@@ -11,4 +8,5 @@
     {{form.password}}
     <input type="submit" value="login">
     <input type="hidden" name="next" value="{{ next }}">
+    <p><a href="{% url 'password_reset' %}" style="text-decoration: none;">Lost password?</a></p>
 </form>
